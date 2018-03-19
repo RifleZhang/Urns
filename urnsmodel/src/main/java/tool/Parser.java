@@ -1,0 +1,205 @@
+package tool;
+
+import type.DataPoint;
+import type.Extraction;
+import type.UrnParameters;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ * Created by riflezhang on 4/10/17.
+ */
+public class Parser {
+    public double[] parse (int len, String Name) {
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File(Name));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        double[] a = new double [len+1];
+        a[0] = len;
+
+        for (int i=1; i<=len; i++) {
+            scanner.nextDouble();
+            scanner.next();
+            a[i] = scanner.nextDouble();
+            scanner.next();
+        }
+        return a;
+    }
+
+    public static double[] parseWekaOutput (int len, String filename) {
+        ClassLoader classLoader = Parser.class.getClassLoader();
+        File file = new File(classLoader.getResource(filename).getFile());
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        double[] a = new double [len];
+
+        for (int i=0; i<len; i++) {
+            scanner.nextDouble();
+            scanner.next();
+            a[i] = scanner.nextDouble();
+            scanner.next();
+        }
+        return a;
+    }
+
+    public static UrnParameters[] readUrnParams (int len, String cFile, String expFile) {
+        double[] logLenC = parseWekaOutput(len, cFile);
+        double[] exp = parseWekaOutput(len, expFile);
+
+        UrnParameters[] params = new UrnParameters[len];
+        for (int i=0; i<len; i++) {
+            params[i] = new UrnParameters(logLenC[i], exp[i]);
+        }
+        return params;
+    }
+
+    public int[] realCounts (String Name) {
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File(Name));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ArrayList<Integer> a = new ArrayList<Integer>();
+        while (scanner.hasNextInt()) {
+            a.add(scanner.nextInt());
+        }
+        int[] ret = new int[a.size() + 1];
+        ret[0] = a.size();
+        for (int i=1; i<=a.size(); i++)
+            ret[i] = a.get(i-1);
+        return ret;
+    }
+
+    public static int isInt(String s) {
+        try {
+            int op1 = Integer.parseInt(s);
+            return op1;
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+
+    }
+
+    public static ArrayList<DataPoint> parseLabeled (String Name) {
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File(Name));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ArrayList<DataPoint> a = new ArrayList<DataPoint>();
+        int tot = 0;
+        int prev = 0;
+        while (scanner.hasNext()) {
+            String s = scanner.next();
+            int tmp = isInt(s);
+            if (tmp != -1) {
+                tot += tmp;
+                prev = tmp;
+            }
+            else {
+                tot -= prev;
+                DataPoint dp = new DataPoint(tot, prev);
+
+                String ss;
+                while (scanner.hasNext()) {
+                    ss = scanner.next();
+                    tmp = isInt(ss);
+                    if (tmp != -1) {
+                        tot = tmp;
+                        break;
+                    }
+                    else{
+                        s = s + " " + ss;
+                    }
+                }
+
+                dp.name = s;
+                a.add(dp);
+            }
+        }
+        /*
+        DataPoint[] array = new DataPoint[a.size() + 1];
+        for(int i=0; i<array.length; i++)
+            array[i] = a.get(i);
+            */
+        return a;
+    }
+
+    public static Extraction[] readExtractionFromFile (String filename, int n) {
+        Extraction[] ex = new Extraction[n];
+
+        ClassLoader classLoader = Parser.class.getClassLoader();
+        File file = new File(classLoader.getResource(filename).getFile());
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        for (int i=0; i<n; i++) {
+            String classname;
+            int m;
+            classname = scanner.next();
+            m = scanner.nextInt();
+            int[] extractions = new int[m];
+            for (int j=0; j<m; j++) {
+                extractions[j] = scanner.nextInt();
+            }
+            ex[i] = new Extraction(extractions, classname);
+        }
+
+        return ex;
+    }
+
+    public static Extraction[] readInstanceFromFile (String filename, int n) {
+        Extraction[] ex = new Extraction[n];
+
+        ClassLoader classLoader = Parser.class.getClassLoader();
+        File file = new File(classLoader.getResource(filename).getFile());
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        for (int i=0; i<n; i++) {
+            String classname;
+            int m;
+            classname = scanner.next();
+            System.out.print(i + " ");
+            System.out.println(classname);m = scanner.nextInt();
+            String[] instances = new String[m];
+            for (int j=0; j<m; j++) {
+                if (scanner.hasNextInt()) {
+                    instances[j] = Integer.toString(scanner.nextInt());
+                } else {
+                    instances[j] = scanner.next();
+                }
+            }
+            ex[i] = new Extraction(instances, classname);
+        }
+
+        return ex;
+    }
+
+
+    public static void main(String args[]) {
+        Parser p = new Parser();
+        //p.parse(100, "inputLen.txt");
+        int[] a = p.realCounts("cityhits.txt");
+        for (int i=0; i<=a[0]; i++)
+            System.out.print(a[i] + " ");
+    }
+}
