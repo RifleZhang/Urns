@@ -55,7 +55,7 @@ public class ModelWebData {
             extractions[i].ModelProb = assignModel(extractions[i].extractions, params[i]);
         }
         final long endTime = System.currentTimeMillis();
-        System.out.println((double)(endTime - startTime) / 1000.0);
+        System.out.println("Run urn model time:" + (double)(endTime - startTime) / 1000.0);
 
         return extractions;
     }

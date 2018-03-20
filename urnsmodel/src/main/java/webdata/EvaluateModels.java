@@ -40,6 +40,12 @@ public class EvaluateModels {
             for (int j=0; j<n; j++) {
                 if (d.classname.equals(ex[j].className)) {
                     int idx = bsearch(ex[j].extractions, d.freq);
+
+                    System.out.println(d.instancename + " " + d.classname + " " + d.label + " " + d.freq);
+                    System.out.println(ex[j].extractions[idx]);
+                    System.out.println("Model Prob: " + modelEx[j].probs[idx]);
+                    System.out.println("EM Prob: " + EMEx[j].probs[idx]);
+
                     if (d.label == 1) {
                         modelL += Math.log(modelEx[j].probs[idx] + eps);
                         EML += Math.log(EMEx[j].probs[idx] + eps);

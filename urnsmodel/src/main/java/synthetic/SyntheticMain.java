@@ -276,19 +276,6 @@ public class SyntheticMain {
 
     }
 
-    public static SyntheticFeature[] genData(int bundle, int num) {
-        SyntheticFeature[] features = new SyntheticFeature[bundle * num];
-        int t = 0;
-        for (int i = 0; i < bundle; i++) {
-            SyntheticParam param = new SyntheticParam();
-            for (int j=0; j<num; j++) {
-                SyntheticTraining train = new SyntheticTraining(param);
-                features[t++] = train.generateTrainingData();
-            }
-        }
-        return features;
-    }
-
     public void urnsWithEM() {
         int len = extractionCounts[0];
 
@@ -419,6 +406,22 @@ public class SyntheticMain {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public static SyntheticFeature[] genData(int bundle, int num) {
+        SyntheticFeature[] features = new SyntheticFeature[bundle * num];
+        int t = 0;
+        for (int i = 0; i < bundle; i++) {
+            if ((i+1) % 20 == 0) {
+                System.out.println(i+1);
+            }
+            SyntheticParam param = new SyntheticParam();
+            for (int j=0; j<num; j++) {
+                SyntheticTraining train = new SyntheticTraining(param);
+                features[t++] = train.generateTrainingData();
+            }
+        }
+        return features;
     }
 
     public static void main(String args[]) throws FileNotFoundException {

@@ -25,6 +25,7 @@ public class CalProbability
     private static int MAXITERS = 10; //number of EM iterations to perform
     //for left-hand rules.
     public static UrnParameters _upLast; //set to most recently learned urnparameters
+    public static long tot_time = 0;
 
 
     //see probabilitiesForCounts (below)
@@ -73,7 +74,11 @@ public class CalProbability
             prior = null;
         UrnParameters up;
 
+        final long startTime = System.currentTimeMillis();
         up = computeUrnParameters(urnCounts, prior, precisions);
+        final long endTime = System.currentTimeMillis();
+        tot_time += endTime - startTime;
+
         Hashtable countsStrToProb = new Hashtable();
         for (int i = 0; i < counts.length; i++) {
 

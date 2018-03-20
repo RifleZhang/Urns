@@ -2,6 +2,7 @@ package webdata;
 
 import type.Extraction;
 import tool.Parser;
+import type.SyntheticParam;
 import urns.CalProbability;
 
 import java.io.IOException;
@@ -11,12 +12,12 @@ import java.text.NumberFormat;
 
 public class EMWebData {
     // Sync with handlabel data
-    public static double pval = 0.35;
+    public static long EM_runtime = 0;
 
     public static double[] assignEM(int[] extractions) {
         int len = extractions.length;
         int[][] EMExtractions = new int[len][1];
-        double [] precs = new double[] {pval};
+        double [] precs = new double[] {SyntheticParam.precision};
 
         for(int i=0;i<extractions.length; i++) {
             EMExtractions[i][0] = extractions[i];
@@ -35,13 +36,14 @@ public class EMWebData {
     public static Extraction[] runEM(String filename, int n) {
         Extraction[] extractions = Parser.readExtractionFromFile(filename, n);
 
-        final long startTime = System.currentTimeMillis();
+        //final long startTime = System.currentTimeMillis();
         for (int i=0; i<n; i++) {
             System.out.println(i);
             extractions[i].EMProb = assignEM(extractions[i].extractions);
         }
-        final long endTime = System.currentTimeMillis();
-        System.out.println((double)(endTime - startTime) / 1000.0);
+        //final long endTime = System.currentTimeMillis();
+        EM_runtime = CalProbability.tot_time;
+        System.out.println("EM total run time: " + (double)(EM_runtime) / 1000.0);
 
         return extractions;
     }

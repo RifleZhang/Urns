@@ -1,200 +1,200 @@
-animal 5 1
-animal 11044 1
-animal 4 0
-animal 126 0
-art 760 1
-art 136 0
-art 723 1
-art 6 0
-asset 54 0
-asset 141 0
-asset 61 0
-asset 5901 1
-book 89 0
-book 8 0
-book 78 0
-book 51 0
-brand 34 0
-brand 164 0
-brand 43 0
-brand 13 0
-building 63 0
-building 2 0
-building 147 0
-building 1 0
-car 28157 0
-car 77 0
-car 5 0
-car 60 0
-city 195 0
-city 671 0
-city 255 0
-city 3227 1
-collection 39 1
-collection 523 0
-collection 9 1
-collection 37 0
-color 2893 1
-color 1034 0
-color 1260 0
-color 712 0
-company 149 0
-company 3597 1
-company 323 0
-company 112 0
-country 325 0
-country 54452 1
-country 278 1
-country 466 0
-device 1772 0
-device 6158 1
-device 3696 0
-device 62163 1
-disease 769 1
-disease 2 0
-disease 7022 1
-disease 1504 0
-disorder 2535 1
-disorder 3090 0
-disorder 69 0
-disorder 500 0
-experience 1011 1
-experience 2 0
-experience 97 0
-experience 1 0
-field 460 0
-field 173 1
-field 318 0
-field 3 0
-film 72 0
-film 246 1
-film 19 0
-film 20 0
-food 2 0
-food 123 0
-food 648 1
-food 3597 1
-game 66 0
-game 1961 0
-game 2031 1
-game 4471 0
-gift 475 0
-gift 109 0
-gift 13201 0
-gift 44 0
-interest 735 0
-interest 175 0
-interest 547 0
-interest 14574 0
-item 556 0
-item 4582 1
-item 8 0
-item 8255 1
-job 186 0
-job 12 0
-job 252 0
-job 18 0
-language 3554 1
-language 14286 1
-language 19 1
-language 14013 1
-leader 50 0
-leader 113 0
-leader 9 0
-leader 68 1
-material 221 0
-material 122 0
-material 32618 1
-material 1108 0
-movie 172 0
-movie 8 0
-movie 362 0
-movie 13024 0
-music 5 0
-music 16373 0
-music 571 0
-music 185 0
-object 1177 0
-object 13 0
-object 1560 1
-object 12 0
-people 22 0
-people 20385 0
-people 28 0
-people 49550 1
-place 155 0
-place 155 0
-place 1 0
-place 1067 0
-player 80 0
-player 4347 1
-player 1093 1
-player 79 1
-professor 122 0
-professor 288 1
-professor 365 0
-professor 130 0
-program 1702 0
-program 23 0
-program 2863 0
-program 98647 0
-project 129 0
-project 1166 0
-project 1534 1
-project 391 0
-publication 14936 1
-publication 24535 0
-publication 243 0
-publication 393 0
-quality 285 1
-quality 3 0
-quality 24 0
-quality 41 0
-software 134 1
-software 2 0
-software 1511 0
-software 74 0
-song 2 0
-song 803 0
-song 37 0
-song 2400 0
-species 4 0
-species 2200 0
-species 29 0
-species 11094 0
-store 1870 0
-store 4 0
-store 49 0
-store 134 0
-symptom 1525 1
-symptom 889 0
-symptom 44 0
-symptom 4444 1
-time 3 0
-time 31 0
-time 6469 0
-time 96 0
-topic 2970 1
-topic 60 0
-topic 4 0
-topic 2299 1
-town 30 1
-town 5 0
-town 1 0
-town 27 1
-treatment 405 1
-treatment 79 1
-treatment 9 0
-treatment 28 0
-vehicle 25 0
-vehicle 9 0
-vehicle 528 0
-vehicle 14436 1
-website 1 0
-website 66961 0
-website 62284 0
-website 25 0
-writer 355 1
-writer 234 1
-writer 3 0
-writer 1 0
+cocks animal 5 1
+horse animal 11044 1
+sweetheart animal 4 0
+week animal 126 0
+image art 760 1
+ep art 136 0
+show art 723 1
+citizens art 6 0
+merger asset 54 0
+english asset 141 0
+litigation asset 61 0
+expense asset 5901 1
+wordpress book 89 0
+influencer book 8 0
+pov book 78 0
+nose book 51 0
+shopper brand 34 0
+may brand 164 0
+z brand 43 0
+naot brand 13 0
+director building 63 0
+thei'e building 2 0
+infrastructure building 147 0
+assessing building 1 0
+car car 28157 0
+plus car 77 0
+es car 5 0
+yugo car 60 0
+capitol city 195 0
+church city 671 0
+fan city 255 0
+vegas city 3227 1
+technologies collection 39 1
+hand collection 523 0
+snowboard collection 9 1
+checklist collection 37 0
+yellow color 2893 1
+tone color 1034 0
+glass color 1260 0
+neutral(10)beige color 712 0
+charters company 149 0
+sony company 3597 1
+jones company 323 0
+vacations company 112 0
+travel country 325 0
+china country 54452 1
+tanzanium country 278 1
+tour country 466 0
+one device 1772 0
+pacemaker device 6158 1
+game device 3696 0
+phone device 62163 1
+brucellosis disease 769 1
+pertain disease 2 0
+obesity disease 7022 1
+therapy disease 1504 0
+apnea disorder 2535 1
+type disorder 3090 0
+region disorder 69 0
+behavior disorder 500 0
+dining experience 1011 1
+soundwalk experience 2 0
+electronics experience 97 0
+adm experience 1 0
+term field 460 0
+dermatology field 173 1
+detection field 318 0
+packed field 3 0
+damsel film 72 0
+cowboy film 246 1
+since film 19 0
+bak film 20 0
+hardwick food 2 0
+movie food 123 0
+ham food 648 1
+chip food 3597 1
+late game 66 0
+effort game 1961 0
+rpg game 2031 1
+thing game 4471 0
+name gift 475 0
+challenge gift 109 0
+result gift 13201 0
+facebook gift 44 0
+llc interest 735 0
+proposal interest 175 0
+a interest 547 0
+interest interest 14574 0
+contract item 556 0
+car item 4582 1
+gaff item 8 0
+furniture item 8255 1
+phone job 186 0
+sampling job 12 0
+age job 252 0
+kennedy job 18 0
+german language 3554 1
+java language 14286 1
+autolisp language 19 1
+spanish language 14013 1
+installation leader 50 0
+religious leader 113 0
+alikhan leader 9 0
+sattar leader 68 1
+chalk material 221 0
+plzt material 122 0
+metal material 32618 1
+tree material 1108 0
+hill movie 172 0
+khoon movie 8 0
+up movie 362 0
+movie movie 13024 0
+senfl music 5 0
+music music 16373 0
+form music 571 0
+america music 185 0
+set object 1177 0
+depressor object 13 0
+card object 1560 1
+vium object 12 0
+fallout people 22 0
+there people 20385 0
+pda people 28 0
+child people 49550 1
+sunshine place 155 0
+lion place 155 0
+mugshots place 1 0
+back place 1067 0
+absence player 80 0
+williams player 4347 1
+ryan player 1093 1
+ravens player 79 1
+question professor 122 0
+mitchell professor 288 1
+rn professor 365 0
+org professor 130 0
+wic program 1702 0
+numeral program 23 0
+technology program 2863 0
+program program 98647 0
+walkway project 129 0
+training project 1166 0
+airport project 1534 1
+safety project 391 0
+journal publication 14936 1
+college publication 24535 0
+o publication 243 0
+release publication 393 0
+appearance quality 285 1
+filmmaking quality 3 0
+secret quality 24 0
+patch quality 41 0
+revit software 134 1
+gonzalez software 2 0
+windows software 1511 0
+blackberry software 74 0
+bajat song 2 0
+guitar song 803 0
+eclipse song 37 0
+one song 2400 0
+hemicochliodon species 4 0
+deer species 2200 0
+fraction species 29 0
+species species 11094 0
+location store 1870 0
+longboard store 4 0
+barrett store 49 0
+setting store 134 0
+congestion symptom 1525 1
+people symptom 889 0
+all symptom 44 0
+cough symptom 4444 1
+lsn time 3 0
+caliber time 31 0
+home time 6469 0
+ready time 96 0
+system topic 2970 1
+diffusion topic 60 0
+athleticism topic 4 0
+science topic 2299 1
+orchha town 30 1
+areas town 5 0
+castleblayney town 1 0
+sheridan town 27 1
+light treatment 405 1
+acupressure treatment 79 1
+uva treatment 9 0
+tub treatment 28 0
+tfsa vehicle 25 0
+similar vehicle 9 0
+fire vehicle 528 0
+truck vehicle 14436 1
+biermandpg website 1 0
+com website 66961 0
+post website 62284 0
+climate website 25 0
+henry writer 355 1
+epstein writer 234 1
+attribute writer 3 0
+c67 writer 1 0

@@ -28,7 +28,11 @@ public class WebTestData {
                 new File(testingFile)),
                 true);
         Extraction[] extractions = Parser.readExtractionFromFile(webData, n);
+
+        final long startTime = System.currentTimeMillis();
         extractions = FeatureExtractor.extractFeatures(extractions);
+        final long endTime = System.currentTimeMillis();
+        System.out.println("Feature extraction time: " + (double)(endTime - startTime) / 1000.0);
 
         WekaArffHeader.printArffHeaderToFile(writer, prediction);
         for (int i=0; i<n; i++) {

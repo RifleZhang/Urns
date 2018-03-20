@@ -1,9 +1,6 @@
 package tool;
 
-import type.DataPoint;
-import type.Extraction;
-import type.LabelData;
-import type.UrnParameters;
+import type.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,6 +11,8 @@ import java.util.Scanner;
  * Created by riflezhang on 4/10/17.
  */
 public class Parser {
+    public final static String preloadFile = "big_dist.txt";
+
     public double[] parse (int len, String Name) {
         Scanner scanner = null;
         try {
@@ -179,8 +178,9 @@ public class Parser {
             String classname;
             int m;
             classname = scanner.next();
-            System.out.print(i + " ");
-            System.out.println(classname);m = scanner.nextInt();
+            // System.out.print(i + " ");
+            // System.out.println(classname);
+            m = scanner.nextInt();
             String[] instances = new String[m];
             for (int j=0; j<m; j++) {
                 if (scanner.hasNextInt()) {
@@ -209,6 +209,7 @@ public class Parser {
         for (int i=0; i<n; i++) {
             data[i] = new LabelData(
                     scanner.next(),
+                    scanner.next(),
                     scanner.nextInt(),
                     scanner.nextInt()
             );
@@ -232,15 +233,10 @@ public class Parser {
             int m;
             classname = scanner.next();
             m = scanner.nextInt();
-            System.out.println(i + " " + classname + " " + m);
+            //System.out.println(i + " " + classname + " " + m);
             double[] probs = new double[m];
             for (int j=0; j<m; j++) {
-                if (scanner.hasNextDouble()) {
-                    probs[j] = scanner.nextDouble();
-                } else {
-                    System.out.println(j);
-                    probs[j] = (double)scanner.nextInt();
-                }
+                probs[j] = scanner.nextDouble();
             }
             ex[i] = new Extraction();
             ex[i].probs = probs;
@@ -248,6 +244,25 @@ public class Parser {
         }
 
         return ex;
+    }
+
+    public static void preload(int[] sizeN, int[] lenW) {
+        ClassLoader classLoader = Parser.class.getClassLoader();
+        File file = new File(classLoader.getResource(preloadFile).getFile());
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        int n = SyntheticParam.preloadSize;
+        for (int i=0; i < n; i++) {
+            sizeN[i] = scanner.nextInt();
+        }
+        for (int i=0; i < n; i++) {
+            lenW[i] = scanner.nextInt();
+        }
     }
 
 

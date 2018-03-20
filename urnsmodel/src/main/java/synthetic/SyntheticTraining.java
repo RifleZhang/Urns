@@ -12,7 +12,6 @@ public class SyntheticTraining {
     public int[] C;
     public int[] E;
     public Extraction ex;
-    public double[] feature;
     public double expTruth;
     public double logLenC;
 
@@ -114,5 +113,35 @@ public class SyntheticTraining {
         double[] feature = FeatureExtractor.extractFeature(ex);
         SyntheticFeature f = new SyntheticFeature(feature, logLenC, expTruth);
         return f;
+    }
+
+    public static void main(String args[]) {
+        SyntheticParam param = new SyntheticParam(0.31);
+        SyntheticTraining st = new SyntheticTraining(param);
+        st.generateTrainingData();
+        System.out.println("n: " + param.N);
+        System.out.println("prob: " + param.distProb);
+        System.out.println("lenW: " + param.lenW);
+        System.out.println("lenE: " + param.lenE);
+        System.out.println("lenC: " + param.lenC);
+
+        System.out.println("C: ");
+        int i;
+        for (i=1; i<st.C.length; i++) {
+            if (i == 50) {
+                System.out.println("\n Len C: " + i);
+                break;
+            }
+            System.out.print(st.C[i] + " ");
+        }
+
+        System.out.println("E: ");
+        for (i=1; i<st.E.length; i++) {
+            if (i == 50) {
+                System.out.println("\n Len E: " + i);
+                break;
+            }
+            System.out.print(st.E[i] + " ");
+        }
     }
 }
