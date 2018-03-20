@@ -1,28 +1,12 @@
 package synthetic;
 
 import type.Extraction;
+import type.SyntheticFeature;
 
 public class FeatureExtractor {
-    // vector input: logLen, sigletonRate/log, low5, mean, median, top10, top50, top100, top1000
-    // vector output: logLenC, zC
-
-    // TODO: use enum
-
-    public static int featureCount = 9;
-    public static String[] featureNames = {
-            "logLen",
-            "singleton",
-            "low5",
-            "mean",
-            "median",
-            "top10",
-            "top50",
-            "top100",
-            "top1000"
-    };
 
     public static double[] extractFeature(Extraction e) {
-        double[] feature = new double[featureCount];
+        double[] feature = new double[SyntheticFeature.featureCount];
         int[] extractions = e.extractions;
         int n = 0;
         for (int num : extractions) {

@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="urnsmodel" />
+        <module name="urns.model" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="urnsmodel" target="1.7" />
+      <module name="urns.model" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -47,7 +47,7 @@ public class WebTestData {
                 50,
                 "urnFreq.txt",
                 "webTestDataC.arff",
-                "@ATTRIBUTE c  NUMERIC"
+                "@ATTRIBUTE logLenC  NUMERIC"
         );
 
         printWebTestingDataToFile(
