@@ -426,7 +426,7 @@ public class TestUrn {
         }
         for (int i = 5; i <= ri; i++) {
             pC[i] /= tot;
-            //System.out.print (g.pC[i] + " ");
+            //System.out.print (g.sizeC[i] + " ");
         }
 
     }

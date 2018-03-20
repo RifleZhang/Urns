@@ -1,6 +1,7 @@
 package webdata;
 
 import type.Extraction;
+import type.SyntheticParam;
 import type.UrnParameters;
 import tool.Parser;
 import urns.CalProbability;
@@ -11,8 +12,6 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 public class ModelWebData {
-    // Sync with handlabel data
-    public static double pval = 0.36;
 
     public static double[] assignModel(int[] extractions, UrnParameters param) {
         int len = extractions.length;
@@ -20,10 +19,10 @@ public class ModelWebData {
         double lenC = Math.exp(param.c);
         double expC = param.exptruth;
         double expE = Math.min(expC, 1.0001);
-        // TODO: need to sync with generation of data from GenTwoSet
+        // TODO: need to sync with generation of data from SyntheticMain
         double lenE = 100000; // should it be 1M or 100K, check
 
-        double precision = pval;
+        double precision = SyntheticParam.precision;
 
         assert (len != 0);
 
@@ -79,5 +78,6 @@ public class ModelWebData {
             }
             writer.print("\n");
         }
+        writer.close();
     }
 }

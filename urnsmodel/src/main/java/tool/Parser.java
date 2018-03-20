@@ -2,6 +2,7 @@ package tool;
 
 import type.DataPoint;
 import type.Extraction;
+import type.LabelData;
 import type.UrnParameters;
 
 import java.io.File;
@@ -194,12 +195,64 @@ public class Parser {
         return ex;
     }
 
+    public static LabelData[] readLabelFromFile(String filename, int n) {
+        ClassLoader classLoader = Parser.class.getClassLoader();
+        File file = new File(classLoader.getResource(filename).getFile());
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        LabelData[] data = new LabelData[n];
+        for (int i=0; i<n; i++) {
+            data[i] = new LabelData(
+                    scanner.next(),
+                    scanner.nextInt(),
+                    scanner.nextInt()
+            );
+        }
+        return data;
+    }
+
+    public static Extraction[] readProbFromFile (String filename, int n) {
+        Extraction[] ex = new Extraction[n];
+
+        ClassLoader classLoader = Parser.class.getClassLoader();
+        File file = new File(classLoader.getResource(filename).getFile());
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        for (int i=0; i<n; i++) {
+            String classname;
+            int m;
+            classname = scanner.next();
+            m = scanner.nextInt();
+            System.out.println(i + " " + classname + " " + m);
+            double[] probs = new double[m];
+            for (int j=0; j<m; j++) {
+                if (scanner.hasNextDouble()) {
+                    probs[j] = scanner.nextDouble();
+                } else {
+                    System.out.println(j);
+                    probs[j] = (double)scanner.nextInt();
+                }
+            }
+            ex[i] = new Extraction();
+            ex[i].probs = probs;
+            ex[i].className = classname;
+        }
+
+        return ex;
+    }
+
 
     public static void main(String args[]) {
-        Parser p = new Parser();
-        //p.parse(100, "inputLen.txt");
-        int[] a = p.realCounts("cityhits.txt");
-        for (int i=0; i<=a[0]; i++)
-            System.out.print(a[i] + " ");
+        readProbFromFile("EMProbs.txt", 50);
+
     }
 }

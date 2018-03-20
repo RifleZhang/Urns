@@ -63,5 +63,6 @@ public class EMWebData {
             }
             writer.print("\n");
         }
+        writer.close();
     }
 }
